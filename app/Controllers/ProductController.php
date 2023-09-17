@@ -15,7 +15,8 @@ class ProductController extends BaseController
 
     public function delete($Id)
     {
-        echo $Id;
+        $this->product->delete($Id);
+        return redirect()->to('/product');
     }
     
     public function save()
