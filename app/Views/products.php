@@ -6,18 +6,29 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="/save" method= "post">
-        <label>code</label>
-        <input type="text" name="code" placeholder="code">
+
+    <form action="/save" method= "post"> 
+        
+    <?php if (isset($pro)): ?>
+        <fieldset>
+        <hr>
+        <label>Code:</label>
+        <input type="hidden" name="Id" value="<?= $pro['Id'] ?>">
+        <input type="text" name="code" placeholder="code" value="<?= isset($_POST['code']) ? $_POST['code'] : $pro['code'] ?>">
         <br>
-        <label>name</label>
-        <input type="text" name="name" placeholder="name">
+        <label>Name:</label>
+        <input type="text" name="name" placeholder="name" value="<?= isset($_POST['name']) ? $_POST['name'] : $pro['name'] ?>">
         <br>
-        <label>quantity</label>
-        <input type="text" name="quantity" placeholder="quantity">
-        <br>
-        <input type="submit" value="save" >
+        <label>Quantity:</label>
+        <input type="text" name="quantity" placeholder="quantity" value="<?= isset($_POST['quantity']) ? $_POST['quantity'] : $pro['quantity'] ?>">
+        <br><br>
+        <input type="submit" value="Add/Update" >
+        <hr>
+        </fieldset> 
+    <?php endif; ?>
     </form>
+
+        <fieldset>
     <h1>Product Listing</h1>
     <table border='1'>
         <tr>
@@ -32,9 +43,29 @@
                 <td><?= $pr['code'] ?></td>
                 <td><?= $pr['name'] ?></td>
                 <td><?= $pr['quantity'] ?></td>
-                <td><a href="/delete/<?= $pr['Id'] ?>">delete</a></td>
+                <td><a href="/delete/<?= $pr['Id'] ?>">delete</a> || <a href="/edit/<?= $pr['Id'] ?>">edit</a></td>
             </tr>
+            </fieldset>
         <?php endforeach; ?>
     </table>
 </body>
+<style>
+    label{
+display:inline-block;
+width:200px;
+margin-right:-100px;
+text-align:left;
+margin-left:-10px;
+margin-bottom:10px;
+}
+input{
+
+}
+
+fieldset{
+border:none;
+width:500px;
+margin:0px auto;
+}
+</style>
 </html>
