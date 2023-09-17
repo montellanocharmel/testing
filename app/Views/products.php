@@ -24,6 +24,7 @@
             <th>code</th>
             <th>name</th>
             <th>quantity</th>
+            <th>action</th>
         </tr>
 
         <?php foreach($product as $pr): ?>
@@ -31,6 +32,7 @@
                 <td><?= $pr['code'] ?></td>
                 <td><?= $pr['name'] ?></td>
                 <td><?= $pr['quantity'] ?></td>
+                <td><a href="/delete/<?= $pr['Id'] ?>">delete</a></td>
             </tr>
         <?php endforeach; ?>
     </table>
