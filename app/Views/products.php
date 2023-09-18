@@ -8,24 +8,21 @@
 <body>
 
     <form action="/save" method= "post"> 
-        
-    <?php if (isset($pro)): ?>
         <fieldset>
         <hr>
         <label>Code:</label>
-        <input type="hidden" name="Id" value="<?= $pro['Id'] ?>">
-        <input type="text" name="code" placeholder="code" value="<?= isset($_POST['code']) ? $_POST['code'] : $pro['code'] ?>">
+        <input type="hidden" name="Id" value="<?= $pro['Id'] ?? '' ?>">
+        <input type="text" name="code" placeholder="code" value="<?= $_POST['code'] ?? $pro['code'] ?? '' ?>">
         <br>
         <label>Name:</label>
-        <input type="text" name="name" placeholder="name" value="<?= isset($_POST['name']) ? $_POST['name'] : $pro['name'] ?>">
+        <input type="text" name="name" placeholder="name" value="<?= $_POST['name'] ?? $pro['name'] ?? '' ?>">
         <br>
         <label>Quantity:</label>
-        <input type="text" name="quantity" placeholder="quantity" value="<?= isset($_POST['quantity']) ? $_POST['quantity'] : $pro['quantity'] ?>">
+        <input type="text" name="quantity" placeholder="quantity" value="<?= $_POST['quantity'] ?? $pro['quantity'] ?? '' ?>">
         <br><br>
-        <input type="submit" value="Add/Update" >
+        <input type="submit" value="Add/Update">
         <hr>
         </fieldset> 
-    <?php endif; ?>
     </form>
 
         <fieldset>

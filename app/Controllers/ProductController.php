@@ -36,7 +36,7 @@ class ProductController extends BaseController
             'name' => $this->request->getVar('name'),
             'quantity' => $this->request->getVar('quantity'),
         ];
-        if($Id!= null){
+        if($Id != null){
            $this->product->set($data)->where('Id', $Id)->update();
         }
         else{
